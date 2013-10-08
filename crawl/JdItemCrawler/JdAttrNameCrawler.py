@@ -1,7 +1,6 @@
 __author__ = 'jnduan'
 import codecs
 import urllib2
-import json
 import math
 import sys
 from bs4 import BeautifulSoup
@@ -26,7 +25,6 @@ def extract_item_attr(pno):
             itemSoup = BeautifulSoup(itemHtmlContent)
             attrTable = itemSoup.find(id="product-detail-2")
             if attrTable:
-                attrDict = {}
                 for attrTR in attrTable.find_all("tr"):
                     td = attrTR.find_all("td")
                     if len(td) == 2:
@@ -35,7 +33,7 @@ def extract_item_attr(pno):
 
 
 def main(category_l1, category_l2, category_l3):
-    global opener, itemListUrlPrefix, itemListUrlSuffix, output_file, page_size#, pno, itemListUrl, itemListHtmlContent, itemListSoup, pNameDiv, itemUrlDiv, itemUrl, itemHtmlContent, itemSoup, attrTable, attrDict, attrTR, td
+    global opener, itemListUrlPrefix, itemListUrlSuffix, output_file, page_size
     opener = urllib2.build_opener()
     page_size = 36.0 #this is a magic number \(-_-)/
     itemListUrlPrefix = 'http://list.jd.com/' + category_l1 + '-' + category_l2 +'-' + category_l3 + '-0-0-0-0-0-0-0-1-1-'
