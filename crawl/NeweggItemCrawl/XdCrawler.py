@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 opener = urllib2.build_opener()
 itemListUrlPrefix = 'http://www.newegg.com.cn/SubCategory/970-'
 itemListUrlSuffix = '.htm#itemGrid1'
-output_file = codecs.open('/Users/jnduan/temp/xditems.txt', 'w', 'utf-8')
+output_file = codecs.open('../../output/xditems.txt', 'w', 'utf-8')
 for pno in range(1, 5):
     itemListUrl = itemListUrlPrefix + str(pno) + itemListUrlSuffix
     print itemListUrl

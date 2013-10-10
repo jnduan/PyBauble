@@ -38,7 +38,7 @@ def main(category_l1, category_l2, category_l3):
     page_size = 36.0 #this is a magic number \(-_-)/
     itemListUrlPrefix = 'http://list.jd.com/' + category_l1 + '-' + category_l2 +'-' + category_l3 + '-0-0-0-0-0-0-0-1-1-'
     itemListUrlSuffix = '-1-1-72-33.html'
-    output_file_name = '/Users/jnduan/temp/jditems_attr_' + category_l3 + '.txt'
+    output_file_name = '../../output/jditems_attr_' + category_l3 + '.txt'
     print "save to %s" %(output_file_name)
     output_file = codecs.open(output_file_name, 'w', 'utf-8')
 

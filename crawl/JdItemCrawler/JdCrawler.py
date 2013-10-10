@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 opener = urllib2.build_opener()
 itemListUrlPrefix = 'http://list.jd.com/670-671-672-0-0-0-0-0-0-0-1-1-'
 itemListUrlSuffix = '-1-1-72-4137-33.html'
-output_file = codecs.open('/Users/jnduan/temp/jditems.txt', 'w', 'utf-8')
+output_file = codecs.open('../../output/jditems.txt', 'w', 'utf-8')
 for pno in range(1, 19):
     itemListUrl = itemListUrlPrefix + str(pno) + itemListUrlSuffix
     print itemListUrl
