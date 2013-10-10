@@ -16,7 +16,7 @@ def fetch_item_list_page(pno):
 
 def extract_item_attr(pno):
     itemListHtmlContent = fetch_item_list_page(pno)
-    itemListSoup = BeautifulSoup(itemListHtmlContent, from_encoding="utf-8")
+    itemListSoup = BeautifulSoup(itemListHtmlContent, from_encoding="gbk")
     pNameDiv = itemListSoup.find_all("div", class_="p-name")
     if pNameDiv:
         for itemUrlDiv in pNameDiv:
