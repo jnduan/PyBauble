@@ -34,7 +34,7 @@ def extract_item_attr(pno):
                         if len(list(attrTR.children)) == 2:
                             attrDict[attrTR.th.get_text()] = attrTR.td.get_text().replace('\r\n', '')
                     attrJSON = json.dumps(attrDict)
-                    output_file.write(attrJSON.decode("unicode-escape"))
+                    output_file.write(attrJSON)
                     output_file.write("\n")
 
 
