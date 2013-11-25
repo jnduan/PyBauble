@@ -12,7 +12,7 @@ for input_file in input_files:
         for line in fp:
             obj = json.loads(line, 'utf-8')
             for k in obj.keys():
-                train_fp.write(k)
+                train_fp.write(k.replace(" ", ""))
                 train_fp.write('\t')
                 train_fp.write(obj[k])
                 train_fp.write('\r\n')
