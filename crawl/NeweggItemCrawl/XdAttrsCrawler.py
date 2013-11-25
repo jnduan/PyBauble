@@ -30,9 +30,17 @@ def extract_item_attr(pno):
                 attrTable = itemSoup.find(id="tabCot_product_2")
                 if attrTable:
                     attrDict = {}
+                    groupName = None
+                    groupAttrDict = {}
                     for attrTR in attrTable.find_all("tr"):
-                        if len(list(attrTR.children)) == 2:
-                            attrDict[attrTR.th.get_text()] = attrTR.td.get_text().replace('\r\n', '')
+                        tds = list(attrTR.children)
+                        if len(tds) == 1:
+                            if groupName:
+                                attrDict[groupName] = groupAttrDict
+                            groupName = tds[0].get_text()
+                            groupAttrDict = {}
+                        elif len(tds) == 2:
+                            groupAttrDict[tds[0].get_text()] = tds[1].get_text().replace('\r\n', '')
                     attrJSON = json.dumps(attrDict)
                     output_file.write(attrJSON)
                     output_file.write("\n")
